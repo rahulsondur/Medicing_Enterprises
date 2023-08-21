@@ -1,0 +1,233 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+
+.header, .footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  height: 10%;
+}
+
+.main-content {
+  background-color: #f0f0f0;
+  text-align: center;
+  height: 80%;
+}
+
+.state-manager {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  height: 10%;
+}
+
+.landing-page {
+  background-color: #f0f0f0;
+  text-align: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.current-machines {
+  background-color: #f0f0f0;
+  height: 100%;
+  flex: 70%;
+  border-right: 1px solid #333; /* Vertical partition using a border */
+}
+
+.new-machine {
+  background-color: #f0f0f0;
+  height: 100%;
+  flex: 30%;
+}
+
+/*Current Machines Record Table*/
+table {
+  width: 90%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+thead {
+  background-color: #f2f2f2; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1; 
+}
+
+.records-table{
+  max-height: 85%;
+  overflow-y: scroll;
+  padding-left:2%;
+}
+
+.records-table::-webkit-scrollbar {
+  width: 0.5em; 
+}
+
+.records-table::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* New Machine Submit Form*/
+.lp-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lp-form { 
+  background-color: #f4f4f4;
+  padding: 2%;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width:80%;
+  height:70%;
+}
+
+.lp-form-row {
+  margin: 5%;
+  text-align: left;
+}
+
+.lp-form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.lp-form-input {
+  width: 90%;
+  padding: 8px;
+  margin-top: 3%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.lp-checkbox-label {
+  display: block;
+  margin-top: 5%;
+}
+
+.lp-submit-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lp-submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/*Data Input Page*/
+.data-input {
+  background-color: #f0f0f0;
+  text-align: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.di-form-group {
+  margin-bottom: 15px;
+}
+
+.di-form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.di-form-group input {
+  width: 30%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.di-create-button-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.di-create-button-container button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.di-create-button-container button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.di-form {
+  width: 80%;
+  height: 80%;
+  margin-left: 7%;
+  margin-top: 1%;
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  overflow-y: scroll;
+}
+
+.di-form::-webkit-scrollbar {
+  width: 0.5em; 
+}
+
+.di-form::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* Additional Fields*/
+.additional-fields label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.additional-fields input {
+  width: 30%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/*Review Page*/
+.review-page {
+  background-color: #f0f0f0;
+  height: 100%;
+  width: 100%;
+}
+
+.pdf-viewer {
+  /* Set appropriate styles for the parent container */
+  width: 40%;
+  height: 96%;
+  padding-left: 5%;
+  padding-top: 2%;
+}
+
+.pdf-container {
+  /* Set appropriate styles for the PDF container */
+  overflow-y:scroll; /* Enable vertical scrolling */
+  height: 95%; /* Make the PDF container take full height of parent */
+}
+
