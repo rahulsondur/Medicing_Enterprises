@@ -10,7 +10,7 @@ const PDFViewer = ({ pdfUrl }) => {
   };
   return (
     <div className="pdf-viewer">
-      <div className="pdf-container" ref={scrollingRef}>
+      <div className="pdf-container" >
         <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
           {Array.from(new Array(numPages), (el, index) => (
             <Page
