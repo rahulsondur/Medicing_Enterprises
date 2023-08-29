@@ -89,7 +89,15 @@ const login = async (req, res) => {
   
 
       let roleAccess = false;
-      let result = await authService.loginUser(username, password, authConstant.PLATFORM.USERAPP, roleAccess);
+      let query = {email:username}
+      let found = await dbService.findOne(User, query);
+      let platform;
+
+      if(!found)
+      return res.badRequest({ message: 'User not exist' });
+      
+
+      let result = await authService.loginUser(username, password, found.userType, roleAccess);
       if (result.flag) {
         return res.badRequest({ message: result.data });
       }

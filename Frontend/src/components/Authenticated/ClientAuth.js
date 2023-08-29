@@ -30,7 +30,7 @@ export const ClientAuth = (props) => {
     }
      
     else 
-    navigate('/client/auth/login');
+    navigate('/userapp/auth/login');
   }
 
 

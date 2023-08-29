@@ -30,7 +30,7 @@ export const AdminAuth = (props) => {
      }
     
     else 
-    navigate('/admin/auth/login');
+    navigate('/userapp/auth/login');
   }
 
 

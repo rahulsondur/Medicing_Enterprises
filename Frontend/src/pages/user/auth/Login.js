@@ -50,7 +50,7 @@ export default function Login(props) {
         const {username,password}  = values;
        const result = await authApi.login({username, password});
         if (result.status==='SUCCESS') {
-          navigate("/");
+          navigate(result?.route);
         }
         if (result.status!=='SUCCESS') {
         enqueueSnackbar(`${result.message} `, {

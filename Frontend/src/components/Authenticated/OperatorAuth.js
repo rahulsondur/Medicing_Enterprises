@@ -29,7 +29,7 @@ export const OperatorAuth = (props) => {
       });
      }
     else 
-    navigate('/operator/auth/login');
+    navigate('/userapp/auth/login');
   }
 
 

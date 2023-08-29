@@ -81,7 +81,9 @@ const loginUser = async (username, password, platform, roleAccess) => {
                 }
             }
         if (password) {
+            console.log(password,'this is password')
                 const isPasswordMatched = await user.isPasswordMatch(password);
+                console.log(isPasswordMatched)
                 if (!isPasswordMatched) {
                     await dbService.updateOne(User,
                         { _id: user.id, isActive: true, isDeleted: false },

@@ -15,7 +15,23 @@ class AuthApi {
            
           });
           const user = await ressponse.json();
-          localStorage.setItem(PLATFORM_TOKEN.USERAPP,user?.data?.token)
+          if(user?.data?.userType===1){
+        localStorage.setItem(PLATFORM_TOKEN.USERAPP,user?.data?.token);
+           user.route="/"
+          }
+        else  if(user?.data?.userType===2){
+        localStorage.setItem(PLATFORM_TOKEN.CLIENT,user?.data?.token);
+        user.route="/client"
+        }
+        else  if(user?.data?.userType===3){
+        localStorage.setItem(PLATFORM_TOKEN.OPERATOR,user?.data?.token);
+        user.route="/operator"
+        }
+        else  if(user?.data?.userType===4){
+        localStorage.setItem(PLATFORM_TOKEN.ADMIN,user?.data?.token);
+        user.route="/admin"
+        }
+
           resolve(user);
         } catch (err) {
           console.error(err);

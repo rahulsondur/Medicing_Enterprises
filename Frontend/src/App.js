@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-
 // userapp routes
 import UserAppLogin from './pages/user/auth/Login';
 import UserAppSignup from './pages/user/auth/Signup';
@@ -23,6 +22,7 @@ import AdminLogin from './pages/admin/auth/Login';
 import AdminSignup from './pages/admin/auth/Signup';
 import AdminMachineTable from './pages/admin/dashboard/machine/MachineTable';
 import AdminUserTable from "./pages/admin/dashboard/users/UserTable"
+import { PLATFORM_TOKEN } from './config/constants';
 
 function App() {
   return (
@@ -33,21 +33,32 @@ function App() {
 
 
       {/* UserApp route Setup */}
-        <Route exact path='/' element={<UserAppMachineTable/>}/>
+        {   localStorage.getItem(PLATFORM_TOKEN.ADMIN)?
+           <Route exact path='/' element={<AdminMachineTable/>}/>:
+          localStorage.getItem(PLATFORM_TOKEN.CLIENT) ?
+         <Route exact path='/' element={<ClientMachineTable/>}/> :
+         localStorage.getItem(PLATFORM_TOKEN.OPERATOR) ?
+         <Route exact path='/' element={<OperatorMachineTable/>}/> :
+         <Route exact path='/' element={<UserAppMachineTable/>}/>
+
+        }
         <Route exact path='/userapp/auth/login' element={<UserAppLogin/>}/>
         <Route exact path='/userapp/auth/signup' element={<UserAppSignup/>}/>
 
          {/* Client route Setup */}
+       
          <Route exact path='/client' element={<ClientMachineTable/>}/>
         <Route exact path='/client/auth/login' element={<ClientLogin/>}/>
         <Route exact path='/client/auth/signup' element={<ClientSignup/>}/>
         
          {/* UserApp route Setup */}
+      
          <Route exact path='/operator' element={<OperatorMachineTable/>}/>
         <Route exact path='/operator/auth/login' element={<OperatorLogin/>}/>
         <Route exact path='/operator/auth/signup' element={<OperatorSignup/>}/>
 
          {/* Admin route Setup */}
+       
          <Route exact path='/admin' element={<AdminMachineTable/>}/>
         <Route exact path='/admin/auth/login' element={<AdminLogin/>}/>
         <Route exact path='/admin/auth/signup' element={<AdminSignup/>}/>

@@ -23,11 +23,12 @@ async function seedUser() {
       'isActive': true,
       'userType': authConstant.USER_TYPES.User
     };
-    userToBeInserted.password = await bcrypt.hash(userToBeInserted.password, 8);
+   
  
      found = await User.findOne({'email': 'user@gmail.com' });
 
     if(found){
+     delete userToBeInserted['password']
     await User.findOneAndUpdate( { 'email': 'user@gmail.com' }, userToBeInserted);
     } else{
      await User.create( userToBeInserted);
@@ -44,11 +45,12 @@ async function seedUser() {
         'isActive': true,
         'userType': authConstant.USER_TYPES.Client
       };
-      userToBeInserted.password = await bcrypt.hash(userToBeInserted.password, 8);
+    
    
        found = await User.findOne({'email': 'client@gmail.com' });
   
       if(found){
+        delete userToBeInserted['password']
        await User.findOneAndUpdate( { 'email': 'client@gmail.com' }, userToBeInserted);
       } else{
          await User.create( userToBeInserted);
@@ -65,11 +67,12 @@ async function seedUser() {
         'isActive': true,
         'userType': authConstant.USER_TYPES.Operator
       };
-      userToBeInserted.password = await bcrypt.hash(userToBeInserted.password, 8);
+    
    
        found = await User.findOne({'email': 'operator@gmail.com' });
   
       if(found){
+        delete userToBeInserted['password']
       await User.findOneAndUpdate( { 'email': 'operator@gmail.com' }, userToBeInserted);
       } else{
      await User.create( userToBeInserted);
@@ -86,11 +89,12 @@ async function seedUser() {
       'isActive': true,
       'userType': authConstant.USER_TYPES.Admin
     };
-    userToBeInserted.password = await bcrypt.hash(userToBeInserted.password, 8);
+  
    
     found = await User.findOne({'email': 'admin@gmail.com' });
 
    if(found){
+    delete userToBeInserted['password']
    await User.findOneAndUpdate( { 'email': 'admin@gmail.com' }, userToBeInserted);
    } else{
   await User.create( userToBeInserted);
